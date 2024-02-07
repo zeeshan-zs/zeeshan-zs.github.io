@@ -27,6 +27,24 @@
   display: none;
 }
 
+.button{
+  background: #0563bb;
+  border: 0;
+  margin-bottom: 10px;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .button{
+    font-size: 14px;
+  }
+}
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -786,6 +804,15 @@ section {
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
   font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.portfolio-details .portfolio-info h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 10%;
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #eee;
