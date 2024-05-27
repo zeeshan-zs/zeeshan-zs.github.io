@@ -389,6 +389,42 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Business Card Section
+--------------------------------------------------------------*/
+
+.bizhero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bizhero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* Cover the entire container */
+}
+
+/*--------------------------------------------------------------
+# Business Card Illustrations
+--------------------------------------------------------------*/
+.illustration-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0; /* Adjust margin as needed */
+  max-width: 600px; /* Set maximum width for desktop */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+}
+
+.illustration-container img {
+  max-width: 100%; /* Ensure the image does not exceed its container's width */
+  height: auto; /* Maintain aspect ratio */
+  margin: 10px 0; /* Adjust spacing between images */
+}
+
+/*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
 section {
@@ -852,6 +888,61 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs {
+  padding: 15px 0;
+  background: #fbfbfb;
+  min-height: 40px;
+}
+
+@media (max-width: 992px) {
+  .breadcrumbs {
+    margin-top: 66px;
+  }
+}
+
+.breadcrumbs h2 {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.breadcrumbs ol li+li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #3c3c3c;
+  content: "/";
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs .d-flex {
+    display: block !important;
+  }
+
+  .breadcrumbs ol {
+    display: block;
+  }
+
+  .breadcrumbs ol li {
+    display: inline-block;
+  }
+}
+
+
+/*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
 .services .icon-box {
@@ -860,6 +951,7 @@ section {
   transition: all ease-in-out 0.3s;
   background: #fff;
   box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+  width: 100%;
 }
 
 .services .icon-box .icon {
