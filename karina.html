@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Karina • Corporate Lawyer - Portfolio</title>
+  <meta name="description" content="Portfolio of Karina, Corporate Lawyer - profile, practice areas, experience, publications and contact." />
+  <meta name="theme-color" content="#561C24" />
+  <link rel="canonical" id="canonicalHref" href="#" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Karina • Corporate Lawyer - Portfolio" />
+  <meta property="og:description" content="Corporate lawyer focused on commercial contracts, compliance and advisory. View experience and get in touch." />
+  <meta property="og:url" id="ogUrl" content="#" />
+  <meta property="og:image" content="og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root{
+      /* Palette inspired by your refs */
+      --maroon:#561C24;    /* primary */
+      --maroon-2:#6D2932;  /* deep */
+      --sand:#E8DBC4;      /* light background */
+      --taupe:#C7B7A3;     /* muted surfaces */
+      --mush:#7E6961;      /* subhead ink */
+      --ink:#1a1515;       /* body ink */
+      --card:#fff;         /* cards */
+      --radius:18px;
+      --shadow:0 12px 36px rgba(0,0,0,.10);
+      --maxw: 980px;
+    }
+    /* system dark mode disabled; using manual data-theme toggle */
+    :root[data-theme="dark"]{ --card:#141113; --ink:#F6F7F9; --shadow:0 12px 36px rgba(0,0,0,.45); --sand: var(--mush); }
+    :focus-visible{ outline:2px solid var(--maroon-2); outline-offset:3px }
+    *{box-sizing:border-box}
+    html,body{height:100%; scroll-behavior:smooth}
+    body{
+      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(1000px 600px at 50% -10%, rgba(109,41,50,.20), transparent 60%),
+        var(--sand);
+    }
+    a{color:var(--maroon); text-decoration:none}
+    a:hover{ text-decoration:underline }
+
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:28px 18px 80px; }
+
+    /* Header */
+    .hero{ background:linear-gradient(120deg, var(--maroon) 0%, var(--maroon-2) 100%); color:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:28px; position:relative; overflow:hidden; }
+    .hero::after{ content:''; position:absolute; inset:auto -40px -40px auto; width:300px; height:300px; background: radial-gradient(closest-side, rgba(255,255,255,.15), transparent); border-radius:50%; pointer-events:none; z-index:1; }
+    .hero-grid{ display:grid; grid-template-columns:96px 1fr; gap:18px; align-items:center; }
+    .avatar{ width:96px; height:96px; border-radius:50%; border:3px solid rgba(255,255,255,.75); background:#fff center/cover no-repeat; overflow:hidden }
+    .avatar img{ width:100%; height:100%; object-fit:cover }
+    .name{ font-size:32px; font-weight:800; margin:0 }
+    .role{ margin:6px 0 0; opacity:.92 }
+    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px }
+    .tag{ background:rgba(255,255,255,.16); padding:6px 10px; border-radius:999px; font-size:12px; border:1px solid rgba(255,255,255,.22) }
+
+    .switch-wrap{ position:absolute; right:16px; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:8px; z-index:2; color:rgba(255,255,255,.9); font-size:12px; font-weight:600; letter-spacing:.02em }
+    .switch{ position:relative; width:46px; height:26px; border-radius:999px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.28); display:inline-block; cursor:pointer }
+    .switch .knob{ position:absolute; top:2px; left:2px; width:22px; height:22px; border-radius:50%; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.2); transition:transform .25s ease }
+    .switch-input{ position:absolute; opacity:0; pointer-events:none }
+    .switch-input:checked + .switch{ background:rgba(255,255,255,.30) }
+    .switch-input:checked + .switch .knob{ transform:translateX(20px) }
+
+    /* Sections */
+    /* Dark-mode readability for cards */
+    :root[data-theme="dark"] .exp-time{ color:#E5DAD3 }
+    :root[data-theme="dark"] .exp-meta{ color:#E5DAD3 }
+    :root[data-theme="dark"] .exp-detail{ color:#FAF7F5 }
+    section{ margin-top:26px; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px }
+    h2{ font-size:14px; letter-spacing:.14em; text-transform:uppercase; margin:0 0 14px; color:var(--mush) }
+    .grid{ display:grid; gap:14px }
+
+    .about p{ margin:0 0 10px }
+
+    .list{ display:flex; flex-wrap:wrap; gap:8px }
+    .pill{ background:var(--taupe); color:#342c2c; padding:8px 10px; border-radius:10px; font-size:13px }
+
+    .exp-item{ display:grid; grid-template-columns: 140px 1fr; gap:12px; padding:12px 0; border-top:1px solid rgba(0,0,0,.06) }
+    .exp-item:first-child{ border-top:0 }
+    .exp-time{ color:#6b5c57; font-size:13px }
+    .exp-title{ font-weight:700 }
+    .exp-meta{ color:#756862; font-size:14px; margin-top:4px }
+    .exp-detail{ margin-top:6px; color:#3d3331 }
+
+    .cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:12px }
+    .card{ border:1px solid rgba(0,0,0,.06); border-radius:14px; padding:14px; background:var(--sand) }
+/* Dark-mode contrast for inner cards */
+:root[data-theme="dark"] .card{ background:#1D1718; border-color:rgba(255,255,255,.14) }
+:root[data-theme="dark"] .card strong{ color:#F6F3F1 }
+:root[data-theme="dark"] .card p{ color:#EFE9E6 }
+    .contact-box{ display:flex; flex-wrap:wrap; gap:14px; align-items:center }
+    .cta{ display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; font-weight:700; letter-spacing:.01em; background:var(--taupe); border:1px solid rgba(0,0,0,.08); box-shadow:0 4px 14px rgba(0,0,0,.06); text-decoration:none; transition:transform .18s ease, box-shadow .18s ease, background .18s ease }
+    .cta:hover{ text-decoration:none; transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,0,0,.10) }
+    .cta:active{ transform:none; box-shadow:0 3px 10px rgba(0,0,0,.10) }
+    .cta svg{ width:18px; height:18px; opacity:.85; transition:transform .18s ease, opacity .18s ease }
+    .cta:hover svg{ transform:translateX(2px); opacity:1 }
+    :root[data-theme="dark"] .cta{ background:#433735; border-color:rgba(255,255,255,.12); box-shadow:0 6px 18px rgba(0,0,0,.28) }
+    :root[data-theme="dark"] .cta:hover{ background:#4b3f3d }
+
+    .foot{ color:#6d5f5a; font-size:12px; margin-top:16px; text-align:center }
+
+    @media (min-width:720px){ .hero-grid{ grid-template-columns:120px 1fr } .avatar{ width:120px; height:120px } }
+      /* === Reveal animations === */
+    .reveal{ opacity:0; transform:translateY(16px); will-change:opacity, transform; }
+    .reveal.in{ opacity:1; transform:none; transition:opacity 800ms ease, transform 800ms ease; transition-delay:var(--d,0ms) }
+    @media (prefers-reduced-motion: reduce){
+      .reveal, .reveal.in{ opacity:1; transform:none; transition:none }
+    }
+
+    /* === Loader === */
+    #loader{ position:fixed; inset:0; display:grid; place-items:center; background:radial-gradient(1200px 600px at 50% -20%, rgba(109,41,50,.25), transparent 60%), linear-gradient(120deg, var(--maroon), var(--maroon-2)); z-index:9999; color:#fff }
+    #loader .box{ display:flex; flex-direction:column; align-items:center; gap:12px }
+    #loader .monogram{ display:grid; place-items:center; width:54px; height:54px; border-radius:14px; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.35); box-shadow:0 6px 18px rgba(0,0,0,.15); font-weight:800; letter-spacing:.08em; color:#fff; animation:pop 900ms ease-in-out infinite alternate }
+    #loader .monogram span{ transform:translateY(1px) }
+    #loader .txt{ font-weight:700; letter-spacing:.06em; font-size:12px; text-transform:uppercase; opacity:.9 }
+    @keyframes pop{ from{ transform:scale(.98) } to{ transform:scale(1.02) } }
+    #loader.hide{ opacity:0; pointer-events:none; transition:opacity 420ms ease }
+  
+    /* ===== Slide styles (law-specific, image-driven) ===== */
+    .slide{ position:relative; overflow:hidden; border-radius:var(--radius); box-shadow:var(--shadow); padding:28px; background:linear-gradient(120deg, var(--maroon) 0%, var(--maroon-2) 100%); color:#fff }
+    .slide h3{ margin:0 0 10px; font-size:28px; letter-spacing:.02em }
+    .slide .kicker{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; opacity:.85 }
+    .slide .muted{ opacity:.86 }
+    .slide .grid{ display:grid; gap:18px }
+    @media(min-width:900px){ .slide .grid{ grid-template-columns: 1.1fr .9fr } }
+    .slide::before{ content:''; position:absolute; inset:0; background:radial-gradient(1000px 600px at 120% 0%, rgba(255,255,255,.12), transparent 55%); pointer-events:none }
+    /* background image set inline to ensure cross-browser support */
+    .slide .watermark{ position:absolute; inset:-6% -10% -6% auto; width:56%; opacity:.20; background-position:70% 15%; background-size:cover; background-repeat:no-repeat; filter:grayscale(15%); mix-blend-mode:normal; border-radius:32px; transform:scale(1.02) }
+
+    .iconlist{ display:grid; gap:12px; margin-top:10px }
+    .iconrow{ display:grid; grid-template-columns:28px 1fr; gap:10px; align-items:flex-start }
+    .iconrow svg{ margin-top:2px; width:18px; height:18px }
+
+    .split-stats{ display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); margin-top:8px }
+    .statcard{ background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.28); border-radius:14px; padding:14px; text-align:left }
+    .statbig{ font-weight:800; font-size:42px; line-height:1 }
+    .statsmall{ font-size:12px; text-transform:uppercase; letter-spacing:.12em; opacity:.9 }
+
+
+
+    /* ===== Floating side menu ===== */
+    .side-nav{ position:fixed; right:18px; top:50%; transform:translateY(-50%); z-index:50; display:flex; flex-direction:column; gap:8px; padding:10px; background:rgba(255,255,255,.7); border:1px solid rgba(0,0,0,.08); border-radius:14px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: var(--shadow); }
+    .side-nav a{ display:block; white-space:nowrap; padding:8px 10px; border-radius:10px; font-size:12px; font-weight:600; color:#3b2f2f; text-decoration:none; border:1px solid transparent }
+    .side-nav a:hover{ background:rgba(86,28,36,.08); border-color:rgba(86,28,36,.18) }
+    .side-nav a.active{ background:linear-gradient(120deg, var(--maroon), var(--maroon-2)); color:#fff; border-color:transparent }
+    @media (max-width: 980px){ .side-nav{ display:none } }
+    :root[data-theme="dark"] .side-nav{ background:rgba(20,17,19,.75); border-color:rgba(255,255,255,.12) }
+    :root[data-theme="dark"] .side-nav a{ color:#EFE9E6 }
+    :root[data-theme="dark"] .side-nav a:hover{ background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.16) }
+
+  
+    /* Publications link styling */
+    #publications .card a{ font-weight:600 }
+  </style>
+</head>
+<body>
+  <div id="loader" aria-hidden="true">
+    <div class="box">
+      <div class="monogram" role="img" aria-label="Loading"><span>KM</span></div>
+      <div class="txt">Loading…</div>
+    </div>
+  </div>
+  <div class="wrap reveal" style="--d:80ms">
+    <header id="top" class="hero reveal" style="--d:160ms">
+      <div class="switch-wrap" role="group" aria-label="Theme">
+        <span class="switch-label" id="themeText">Light</span>
+        <input id="themeSwitch" class="switch-input" type="checkbox" aria-hidden="true" />
+        <label class="switch" for="themeSwitch" aria-label="Toggle theme"><span class="knob"></span></label>
+      </div>
+      <div class="hero-grid">
+        <div class="avatar"><img src="https://media.licdn.com/dms/image/v2/D5603AQFEtVx96MMrtw/profile-displayphoto-scale_200_200/B56ZtGNeoBK8AY-/0/1766409498355?e=1771459200&v=beta&t=Qo7WfE_mcDz8RqB6BEqs5xsaHl3IAUlIP8F8LuAECMY" alt="Portrait of Karina" onerror="this.style.display='none'"/></div>
+        <div>
+          <h1 class="name">Karina <span style="opacity:.8">Manaf</span></h1>
+          <p class="role">Legal Associate • Corporate & Commercial - Dubai, UAE</p>
+          <div class="tags">
+  <span class="tag">Corporate & Commercial</span>
+  <span class="tag">Company Formation</span>
+  <span class="tag">Regulatory & Compliance</span>
+  <span class="tag">FinTech & Virtual Assets</span>
+</div>
+
+        </div>
+      </div>
+    </header>
+
+    <section id="profile" class="about reveal" style="--d:240ms">
+      <h2>Profile</h2>
+      <p>Karina is a Dubai‑based legal professional working across corporate & commercial matters. She supports clients with day‑to‑day contracting, governance, company formation and compliance programs, with a practical, business‑first approach.</p>
+      <p style="color:#6f5f58">Available for select mandates and advisory retainers.</p>
+    </section>
+
+    <section id="practice" class="reveal" style="--d:400ms">
+      <h2>Practice Areas</h2>
+      <div class="list">
+        <span class="pill">Commercial & Vendor Contracts</span>
+        <span class="pill">Company Formation & Restructuring</span>
+        <span class="pill">Corporate Governance</span>
+        <span class="pill">Employment Advisory</span>
+        <span class="pill">Regulatory & Compliance</span>
+        <span class="pill">Data Protection & Policies</span>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal" style="--d:560ms">
+      <h2>Experience</h2>
+      <div class="grid">
+        <div class="exp-item">
+          <div class="exp-time">2023 - Present</div>
+          <div>
+            <div class="exp-title">Legal Associate - <span class="exp-meta">Lutfi &amp; Co Advocates &amp; Legal Consultants, Dubai</span></div>
+            <div class="exp-detail">Corporate/commercial advisory; drafting &amp; negotiating contracts (NDAs, MSAs, vendor/service agreements); company formation &amp; filings; regulatory &amp; compliance support.</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-time">2022 - 2023</div>
+          <div>
+            <div class="exp-title">Legal Assistant - <span class="exp-meta">Lutfi &amp; Co Advocates &amp; Legal Consultants</span></div>
+            <div class="exp-detail">Supported transactions and research; prepared documents; coordinated client communications.</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-time">Internships</div>
+          <div>
+            <div class="exp-title">Legal Intern - <span class="exp-meta">Multiple placements</span></div>
+            <div class="exp-detail">Rotations covering corporate documentation, legal research and drafting.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="reveal" style="--d:720ms">
+      <h2>Representative Work</h2>
+      <div class="cards">
+        <div class="card">
+          <strong>Global SaaS MSA Suite</strong>
+          <p style="margin:6px 0 0">Built a templates stack (MSA/SOW/DPA/SLA) and negotiation playbook to streamline enterprise deals.</p>
+        </div>
+        <div class="card">
+          <strong>Regulatory Readiness</strong>
+          <p style="margin:6px 0 0">Implemented compliance policies (data protection, whistleblowing, AML/KYC where applicable) across multi‑entity structure.</p>
+        </div>
+        <div class="card">
+          <strong>Vendor Risk Program</strong>
+          <p style="margin:6px 0 0">Introduced vendor onboarding checklist and contract clause library to de‑risk procurement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="credentials" class="reveal" style="--d:880ms">
+      <h2>Credentials</h2>
+      <div class="grid">
+        <div class="exp-item">
+          <div class="exp-time">Admissions</div>
+          <div>Admitted to practice in [Jurisdiction(s)]; eligible to register with [local authorities if relevant].</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-time">Education</div>
+          <div>BBA LL.B., Karnataka State Law University - 2022. Certifications: [e.g., IAPP CIPP/E], [Arbitration/ADR], etc.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-time">Languages</div>
+          <div>English, Hindi, Urdu.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="reveal" style="--d:1040ms">
+      <h2>Publications &amp; Speaking</h2>
+      <div id="pubList" class="grid"></div>
+      <template id="pubItem">
+        <div class="card">
+          <strong class="pub-title"></strong>
+          <div class="pub-meta" style="color:#6b5c57; font-size:13px; margin-top:6px"></div>
+          <div class="pub-desc" style="margin-top:8px; color:#3d3331"></div>
+          <div class="pub-link" style="margin-top:10px"></div>
+        </div>
+      </template>
+    </section>
+
+    <section id="focus" class="slide reveal" style="--d:1200ms" data-img="1766409498267.png">
+      <div class="grid">
+        <div>
+          <div class="kicker">Corporate & Commercial</div>
+          <h3>Practical legal support for growing companies</h3>
+          <p class="muted">I help SMEs and mid‑market teams with day‑to‑day contracting, vendor onboarding, company formation and compliance programs—designed to fit how your business actually runs.</p>
+          <div class="iconlist">
+            <div class="iconrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-6 9 6-9 6-9-6z"/><path d="M3 9v6l9 6 9-6V9"/></svg><span>Company formation and governance basics; registers &amp; resolutions.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="watermark" aria-hidden="true" style="background-image:url('karina-no-bg.png')"></div>
+    </section>
+
+    <section id="contact" class="reveal" style="--d:1360ms">
+      <h2>Contact</h2>
+      <div class="contact-box">
+        <a class="cta" href="mailto:legal@example.com" aria-label="Email Karina">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 6l-10 7L2 6"/><rect x="2" y="6" width="20" height="12" rx="2" ry="2"/></svg>
+          legal@example.com
+        </a>
+        <a class="cta" href="https://www.linkedin.com/in/karina-manaf-bb39b3152/" target="_blank" rel="noopener">LinkedIn Profile</a>
+      </div>
+      <p class="foot">This site shares general professional information and does not constitute legal advice.</p>
+    </section>
+  </div>
+
+  <script>
+    const here = window.location.href.split('#')[0];
+    document.getElementById('canonicalHref').setAttribute('href', here);
+    document.getElementById('ogUrl').setAttribute('content', here);
+  </script>
+
+  <script>
+    // Theme toggle
+    const themeKey = 'km_theme';
+    const applyTheme = t => document.documentElement.setAttribute('data-theme', t);
+    const saved = localStorage.getItem(themeKey) || 'light';
+    applyTheme(saved);
+    const sw = document.getElementById('themeSwitch');
+    const tx = document.getElementById('themeText');
+    if(tx) tx.textContent = (saved === 'dark') ? 'Dark' : 'Light';
+    if(sw){
+      sw.checked = (saved === 'dark');
+      sw.addEventListener('change', ()=>{
+        const next = sw.checked ? 'dark' : 'light';
+        applyTheme(next);
+        localStorage.setItem(themeKey, next);
+        if(tx) tx.textContent = (next === 'dark') ? 'Dark' : 'Light';
+      });
+    }
+  </script>
+
+  <script>
+    // ===== Loader + Cascade reveal =====
+    (function(){
+      const loader = document.getElementById('loader');
+      const items = document.querySelectorAll('.reveal');
+      function revealAll(){
+        items.forEach(el=>{ requestAnimationFrame(()=> el.classList.add('in')); });
+      }
+      window.addEventListener('load', ()=>{
+        loader?.classList.add('hide');
+        setTimeout(()=>{ loader?.remove(); revealAll(); }, 440);
+      });
+      // Safety: reveal even if onload is delayed
+      setTimeout(()=>{
+        if(loader){
+          loader.classList.add('hide');
+          revealAll();
+          setTimeout(()=>{ try{ loader.remove(); }catch(e){} }, 320);
+        }
+      }, 2500);
+
+    })();
+  </script>
+
+  <script>
+    // ===== Scrollspy for side-nav =====
+    (function(){
+      const links = Array.from(document.querySelectorAll('.side-nav a'));
+      const ids = links.map(a=>a.getAttribute('href')).filter(h=>h && h.startsWith('#')).map(h=>h.slice(1));
+      const sections = ids.map(id=>document.getElementById(id)).filter(Boolean);
+      if(!('IntersectionObserver' in window) || !sections.length) return;
+      
+      function setActive(id){
+        links.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ setActive(e.target.id); }
+        });
+      }, { rootMargin:'-35% 0px -55% 0px', threshold:[0, 0.5, 1] });
+      sections.forEach(sec=> io.observe(sec));
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Karina Manaf",
+    "jobTitle": "Legal Associate",
+    "url": "",
+    "email": "mailto:legal@example.com",
+    "address": {"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"},
+    "sameAs": ["https://www.linkedin.com/in/karina-manaf-bb39b3152/"]
+  }
+    </script>
+
+  <script>
+    // ===== Publications & Speaking =====
+    // Add items here (or leave empty to auto-hide the section)
+    const publications = [
+      // Example objects - replace with real items or delete examples
+      // { title: 'Contracting for Startups in the UAE', outlet: 'Medium', year: '2025', desc: 'Plain‑English guide to commercial contracts for early‑stage teams.', link: 'https://example.com' },
+      // { title: 'Panelist: Data Protection for SMEs', outlet: 'Dubai SME Week', year: '2024', desc: 'Discussed practical compliance and vendor risk.', link: 'https://example.com' },
+    ];
+
+    (function renderPubs(){
+      const section = document.getElementById('publications');
+      const list = document.getElementById('pubList');
+      if(!section || !list) return;
+      if(!publications.length){ section.style.display='none'; return; }
+      const tpl = document.getElementById('pubItem');
+      publications.forEach(p=>{
+        const node = tpl.content.cloneNode(true);
+        node.querySelector('.pub-title').textContent = p.title;
+        node.querySelector('.pub-meta').textContent = [p.outlet, p.year].filter(Boolean).join(' • ');
+        if(p.desc) node.querySelector('.pub-desc').textContent = p.desc; else node.querySelector('.pub-desc').remove();
+        if(p.link){
+          const a = document.createElement('a'); a.href=p.link; a.target='_blank'; a.rel='noopener'; a.textContent='Read more';
+          node.querySelector('.pub-link').appendChild(a);
+        }
+        list.appendChild(node);
+      });
+    })();
+  </script>
+
+  <nav class="side-nav" aria-label="Jump to section">
+    <a href="#top">Top</a>
+    <a href="#profile">Profile</a>
+    <a href="#practice">Practice Areas</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Work</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#publications">Publications</a>
+    <a href="#focus">Focus</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</body>
+</html>
