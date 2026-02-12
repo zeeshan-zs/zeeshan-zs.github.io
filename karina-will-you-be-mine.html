@@ -287,12 +287,12 @@
       }
     }
 
-    yesBtn.addEventListener("click", () => {
+    yesBtn.addEventListener("click", async () => {
+      notifyMeSheSaidYes(); // don’t await; keep the UI instant
       result.classList.add("show");
       popConfetti();
       launchBalloons();
 
-      // Optional: disable buttons after "Yes"
       yesBtn.disabled = true;
       noBtn.style.display = "none";
       yesBtn.textContent = "YES!!!!!!";
@@ -300,6 +300,31 @@
       //Hide ps txt
       pstxt.style.display = "none";
     });
+
+
+    async function notifyMeSheSaidYes() {
+    const FORMSPREE_URL = "https://formspree.io/f/mwvnlepw"; // <-- formspreee endpoint
+
+    try {
+      await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",         // for JSON response :contentReference[oaicite:3]{index=3}
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          event: "valentine_yes",
+          who: "Kareena",
+          page: window.location.href,
+          time: new Date().toISOString()
+        })
+      });
+    } catch (e) {
+      // Keeping it silent so the surprise still works even if the request fails
+      console.log("Notification failed:", e);
+    }
+  }
+
   </script>
 </body>
 </html>
