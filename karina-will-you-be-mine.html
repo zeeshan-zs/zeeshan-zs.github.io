@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Karina, Be Mine? 💘</title>
+  <style>
+    :root { --bg1:#ffeff6; --bg2:#ffe3f1; --text:#2b2b2b; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 20% 10%, var(--bg2), var(--bg1));
+      overflow: hidden;
+    }
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      position: relative;
+    }
+    .card {
+      width: min(560px, 92vw);
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(28px, 5vw, 40px); }
+    p { margin: 0 0 18px; font-size: 16px; opacity: 0.85; }
+    .buttons {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+      min-height: 80px;
+    }
+    button {
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    #yesBtn {
+      background: linear-gradient(135deg, #ff4d88, #ff7bb2);
+      color: white;
+      box-shadow: 0 10px 20px rgba(255, 77, 136, 0.25);
+    }
+    #yesBtn:hover { transform: translateY(-2px) scale(1.02); filter: saturate(1.05); }
+    #noBtn {
+      background: #ffffff;
+      color: #ff4d88;
+      border: 2px solid rgba(255, 77, 136, 0.35);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      position: relative; /* gets switched to absolute when it starts running */
+    }
+
+    .result {
+      margin-top: 18px;
+      display: none;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .result.show { display: flex; }
+    .gif {
+      width: min(360px, 80vw);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+      border: 1px solid rgba(0,0,0,0.06);
+      background: white;
+    }
+    .gif img { display: block; width: 100%; height: auto; }
+    .sweet {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      display: none;
+    }
+    .confetti.show { display: block; }
+    .confetto {
+      position: absolute;
+      width: 10px;
+      height: 14px;
+      opacity: 0.95;
+      transform: translateY(-20px);
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 1;
+      }
+    }
+
+    /* Balloons */
+    .balloon {
+      position: fixed;
+      bottom: -120px;
+      width: 48px;
+      height: 62px;
+      border-radius: 50% 50% 45% 45%;
+      box-shadow: inset -8px -10px 0 rgba(0,0,0,0.08);
+      z-index: 5;
+      pointer-events: none;
+      animation: floatUp linear forwards;
+    }
+    .balloon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 62px;
+      width: 2px;
+      height: 80px;
+      background: rgba(0,0,0,0.15);
+      transform: translateX(-50%);
+    }
+    @keyframes floatUp {
+      to {
+        transform: translateY(-120vh) translateX(var(--drift)) rotate(var(--tilt));
+        opacity: 1;
+      }
+    }
+
+    .tiny {
+      margin-top: 10px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="card">
+        <h2>GURLLL</h2>
+      <h1>Will you be my Valentine, Karina? 💘</h1>
+      <p>I promise food dates, lame jokes, and loving you a little more every day.</p>
+
+      <div class="buttons" id="btnArea">
+        <button id="yesBtn">Yes 😍</button>
+        <button id="noBtn" aria-label="No button">No 🙃</button>
+      </div>
+
+      <div class="result" id="result">
+        <div class="sweet">Yessss! Okay I'm officially the luckiest human EVERR 😭💖</div>
+        <div class="gif">
+          <!-- Swap this GIF URL to any you like -->
+          <img alt="Celebration gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+        </div>
+      </div>
+      <div id="pstxt">
+        <div class="tiny">P.S. Clicking NO would BREAK ME 😭</div>
+        <div class="tiny">P.P.S. Pleej don't sell me again 😌</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="confetti" id="confettiLayer"></div>
+
+  <script>
+    const pstxt = document.getElementById("pstxt");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const btnArea = document.getElementById("btnArea");
+    const result = document.getElementById("result");
+    const confettiLayer = document.getElementById("confettiLayer");
+
+    let noIsRunning = false;
+
+    function rand(min, max) { return Math.random() * (max - min) + min; }
+
+    function moveNoButtonAway(pointerX, pointerY) {
+      // Make it absolute inside the button area so it can run around
+      if (!noIsRunning) {
+        const rect = btnArea.getBoundingClientRect();
+        const btnRect = noBtn.getBoundingClientRect();
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = `${btnRect.left - rect.left}px`;
+        noBtn.style.top  = `${btnRect.top - rect.top}px`;
+        noIsRunning = true;
+      }
+
+      const area = btnArea.getBoundingClientRect();
+      const btn = noBtn.getBoundingClientRect();
+
+      const padding = 8;
+      const maxX = area.width - btn.width - padding;
+      const maxY = area.height - btn.height - padding;
+
+      // Pick a new spot that is far-ish from pointer
+      let x, y;
+      for (let i = 0; i < 12; i++) {
+        x = rand(padding, Math.max(padding, maxX));
+        y = rand(padding, Math.max(padding, maxY));
+        const dx = (area.left + x) - pointerX;
+        const dy = (area.top + y) - pointerY;
+        if (Math.hypot(dx, dy) > 120) break;
+      }
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+      noBtn.style.transform = `rotate(${rand(-8, 8)}deg)`;
+    }
+
+    // Desktop: run on hover / move
+    noBtn.addEventListener("mouseenter", (e) => {
+      moveNoButtonAway(e.clientX, e.clientY);
+    });
+    noBtn.addEventListener("mousemove", (e) => {
+      moveNoButtonAway(e.clientX, e.clientY);
+    });
+
+    // Mobile: run when they try to tap
+    noBtn.addEventListener("touchstart", (e) => {
+      const t = e.touches[0];
+      moveNoButtonAway(t.clientX, t.clientY);
+      e.preventDefault();
+    }, { passive: false });
+
+    // Clicking no does nothing (just in case)
+    noBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    function popConfetti() {
+      confettiLayer.innerHTML = "";
+      confettiLayer.classList.add("show");
+
+      const pieces = 160;
+      for (let i = 0; i < pieces; i++) {
+        const c = document.createElement("div");
+        c.className = "confetto";
+        c.style.left = `${rand(0, 100)}vw`;
+        c.style.top = `${rand(-10, -2)}vh`;
+        c.style.background = `hsl(${Math.floor(rand(0, 360))} 90% 60%)`;
+        c.style.borderRadius = `${rand(2, 6)}px`;
+        c.style.transform = `rotate(${rand(0, 360)}deg)`;
+        c.style.animationDuration = `${rand(1.8, 3.2)}s`;
+        c.style.animationDelay = `${rand(0, 0.35)}s`;
+        confettiLayer.appendChild(c);
+      }
+
+      // Clean up after animation
+      setTimeout(() => confettiLayer.classList.remove("show"), 3800);
+    }
+
+    function launchBalloons() {
+      const count = 14;
+      for (let i = 0; i < count; i++) {
+        const b = document.createElement("div");
+        b.className = "balloon";
+        b.style.left = `${rand(0, 100)}vw`;
+        b.style.background = `hsl(${Math.floor(rand(320, 20))} 85% 65%)`; // pink-ish range via wrap
+        b.style.opacity = `${rand(0.85, 1)}`;
+        b.style.setProperty("--drift", `${rand(-80, 80)}px`);
+        b.style.setProperty("--tilt", `${rand(-18, 18)}deg`);
+        b.style.animationDuration = `${rand(4.5, 7.5)}s`;
+        document.body.appendChild(b);
+
+        setTimeout(() => b.remove(), 8000);
+      }
+    }
+
+    yesBtn.addEventListener("click", () => {
+      result.classList.add("show");
+      popConfetti();
+      launchBalloons();
+
+      // Optional: disable buttons after "Yes"
+      yesBtn.disabled = true;
+      noBtn.style.display = "none";
+      yesBtn.textContent = "YES!!!!!!";
+
+      //Hide ps txt
+      pstxt.style.display = "none";
+    });
+  </script>
+</body>
+</html>
