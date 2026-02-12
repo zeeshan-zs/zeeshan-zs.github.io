@@ -1358,39 +1358,21 @@ section {
 }
 
 /* =========================================================
-   Case Study Layout (Sticky-safe on MyResume template)
+   Case Study Enhancements (Meraki Details - Zee)
    Paste at the end of assets/css/style.css
 ========================================================= */
 
-/* 1) Your template has: section { overflow: hidden; }
-      That breaks sticky. We override ONLY for this page section. */
-#portfolio-details.case-details {
-  overflow: visible !important;
-}
-
-/* 2) Sticky wrapper (NO AOS on this element) */
-.case-sticky {
-  position: sticky;
-  top: 110px;            /* adjust if your header/breadcrumb height changes */
-  align-self: flex-start; /* helps inside flex/grid layouts */
-  z-index: 2;
-}
-
-/* 3) Card UI */
 .case-card {
-  background: #fff;
+  padding: 28px;
   border-radius: 14px;
   box-shadow: 0px 0 30px rgba(69, 80, 91, 0.08);
-  border: 1px solid rgba(69, 80, 91, 0.06);
-  overflow: visible;
+  background: #fff;
 }
 
-/* AOS goes here (safe) */
-.case-card__inner {
-  padding: 28px;
+.case-card__header {
+  margin-bottom: 18px;
 }
 
-/* Titles */
 .case-title {
   font-size: 24px;
   font-weight: 800;
@@ -1414,7 +1396,6 @@ section {
   font-family: "Raleway", sans-serif;
 }
 
-/* Meta rows */
 .case-meta {
   border-top: 1px solid #eef1f4;
   border-bottom: 1px solid #eef1f4;
@@ -1448,7 +1429,76 @@ section {
   text-align: right;
 }
 
-/* Bullets */
+.case-highlights {
+  margin-top: 10px;
+}
+
+.case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.case-tag {
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #eef7ff;
+  color: #0563bb;
+  border: 1px solid rgba(5, 99, 187, 0.12);
+  line-height: 1;
+  font-weight: 600;
+}
+
+.case-cta {
+  margin-top: 18px;
+}
+
+.case-story {
+  padding-top: 30px;
+}
+
+.case-h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #45505b;
+}
+
+.case-section {
+  padding: 18px 0;
+  border-top: 1px solid #eef1f4;
+}
+
+.case-section--last {
+  padding-bottom: 0;
+}
+
+.case-h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #45505b;
+  font-family: "Raleway", sans-serif;
+}
+
+.case-h4 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #45505b;
+  font-family: "Raleway", sans-serif;
+}
+
+.case-mini {
+  border: 1px solid #eef1f4;
+  border-radius: 14px;
+  padding: 16px;
+  height: 100%;
+  background: #fff;
+}
+
 .case-points {
   list-style: none;
   padding: 0;
@@ -1459,7 +1509,7 @@ section {
   position: relative;
   padding-left: 20px;
   margin: 10px 0;
-  line-height: 1.8;
+  line-height: 1.7;
   color: #45505b;
 }
 
@@ -1483,73 +1533,30 @@ section {
   break-inside: avoid;
 }
 
-/* Tags */
-.case-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.case-tag {
-  font-size: 12px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: #eef7ff;
-  color: #0563bb;
-  border: 1px solid rgba(5, 99, 187, 0.12);
-  line-height: 1;
-  font-weight: 600;
-}
-
-/* CTA */
-.case-cta {
-  margin-top: 18px;
-}
-
-/* Story block */
-.case-story {
-  padding-top: 30px;
-}
-
-.case-h2 {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 18px;
-  color: #45505b;
-}
-
-.case-section {
-  padding: 22px 0;
-  border-top: 1px solid #eef1f4;
-}
-
-.case-section--last {
-  padding-bottom: 0;
-}
-
-.case-h3 {
-  font-size: 19px;
-  margin-bottom: 12px;
-  font-weight: 800;
-  color: #45505b;
-  font-family: "Raleway", sans-serif;
-}
-
-.case-h4 {
-  font-size: 16px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: #45505b;
-  font-family: "Raleway", sans-serif;
-}
-
-.case-mini {
+.case-impact {
   border: 1px solid #eef1f4;
   border-radius: 14px;
   padding: 16px;
-  height: 100%;
-  background: #fff;
+  background: #fbfdff;
+}
+
+.case-impact__item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.case-impact__item + .case-impact__item {
+  border-top: 1px dashed rgba(5, 99, 187, 0.18);
+}
+
+.case-impact__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0563bb;
+  margin-top: 6px;
+  flex: 0 0 auto;
 }
 
 .case-footer-cta {
@@ -1559,18 +1566,12 @@ section {
   margin-top: 22px;
 }
 
-/* Responsive */
 @media (max-width: 991px) {
-  .case-sticky {
-    position: static; /* don’t stick on mobile */
-    top: auto;
-  }
-
   .case-points--two-col {
     columns: 1;
   }
 
-  .case-card__inner {
+  .case-card {
     padding: 22px;
   }
 
@@ -1578,6 +1579,3 @@ section {
     font-size: 24px;
   }
 }
-
-
-
