@@ -1581,11 +1581,13 @@ section {
 }
 
 @media (min-width: 992px) {
-  .case-sticky {
+  .col-lg-4.case-sticky {
     position: sticky;
     top: 110px;
+    align-self: flex-start; /* important */
   }
 }
+
 
 
 
