@@ -1356,3 +1356,227 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+/* =========================================================
+   Case Study Enhancements (Meraki Details - Zee)
+   Paste at the end of assets/css/style.css
+========================================================= */
+
+.case-card {
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0px 0 30px rgba(69, 80, 91, 0.08);
+  background: #fff;
+}
+
+.case-card__header {
+  margin-bottom: 18px;
+}
+
+.case-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  color: #45505b;
+  font-family: "Raleway", sans-serif;
+}
+
+.case-subtitle {
+  margin: 0;
+  color: #728394;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.case-card__title {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 18px 0 10px 0;
+  color: #45505b;
+  font-family: "Raleway", sans-serif;
+}
+
+.case-meta {
+  border-top: 1px solid #eef1f4;
+  border-bottom: 1px solid #eef1f4;
+  padding: 14px 0;
+  margin: 16px 0;
+}
+
+.case-meta__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+}
+
+.case-meta__label {
+  color: #728394;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.case-meta__label i {
+  color: #0563bb;
+  margin-right: 6px;
+}
+
+.case-meta__value {
+  color: #45505b;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: right;
+}
+
+.case-highlights {
+  margin-top: 10px;
+}
+
+.case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.case-tag {
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #eef7ff;
+  color: #0563bb;
+  border: 1px solid rgba(5, 99, 187, 0.12);
+  line-height: 1;
+  font-weight: 600;
+}
+
+.case-cta {
+  margin-top: 18px;
+}
+
+.case-story {
+  padding-top: 30px;
+}
+
+.case-h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #45505b;
+}
+
+.case-section {
+  padding: 18px 0;
+  border-top: 1px solid #eef1f4;
+}
+
+.case-section--last {
+  padding-bottom: 0;
+}
+
+.case-h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #45505b;
+  font-family: "Raleway", sans-serif;
+}
+
+.case-h4 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #45505b;
+  font-family: "Raleway", sans-serif;
+}
+
+.case-mini {
+  border: 1px solid #eef1f4;
+  border-radius: 14px;
+  padding: 16px;
+  height: 100%;
+  background: #fff;
+}
+
+.case-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.case-points li {
+  position: relative;
+  padding-left: 20px;
+  margin: 10px 0;
+  line-height: 1.7;
+  color: #45505b;
+}
+
+.case-points li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0563bb;
+  position: absolute;
+  left: 0;
+  top: 9px;
+}
+
+.case-points--two-col {
+  columns: 2;
+  column-gap: 28px;
+}
+
+.case-points--two-col li {
+  break-inside: avoid;
+}
+
+.case-impact {
+  border: 1px solid #eef1f4;
+  border-radius: 14px;
+  padding: 16px;
+  background: #fbfdff;
+}
+
+.case-impact__item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.case-impact__item + .case-impact__item {
+  border-top: 1px dashed rgba(5, 99, 187, 0.18);
+}
+
+.case-impact__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0563bb;
+  margin-top: 6px;
+  flex: 0 0 auto;
+}
+
+.case-footer-cta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+@media (max-width: 991px) {
+  .case-points--two-col {
+    columns: 1;
+  }
+
+  .case-card {
+    padding: 22px;
+  }
+
+  .case-h2 {
+    font-size: 24px;
+  }
+}
+
