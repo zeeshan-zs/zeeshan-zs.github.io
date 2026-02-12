@@ -1581,10 +1581,11 @@ section {
 }
 
 @media (min-width: 992px) {
-  .case-card {
+  .case-sticky {
     position: sticky;
-    top: 110px; /* adjust if your header height differs */
+    top: 110px;
   }
 }
+
 
 
