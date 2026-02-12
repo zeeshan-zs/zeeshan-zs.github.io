@@ -1592,6 +1592,7 @@ section#portfolio-details.portfolio-details {
   overflow: visible !important;
 }
 
+.case-card { max-height: 70vh; overflow: auto; }
 
 
 
