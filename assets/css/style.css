@@ -1467,7 +1467,7 @@ section {
 }
 
 .case-section {
-  padding: 18px 0;
+  padding: 22px 0;
   border-top: 1px solid #eef1f4;
 }
 
@@ -1476,9 +1476,9 @@ section {
 }
 
 .case-h3 {
-  font-size: 18px;
+  font-size: 19px;
+  margin-bottom: 12px;
   font-weight: 800;
-  margin-bottom: 10px;
   color: #45505b;
   font-family: "Raleway", sans-serif;
 }
@@ -1509,7 +1509,7 @@ section {
   position: relative;
   padding-left: 20px;
   margin: 10px 0;
-  line-height: 1.7;
+  line-height: 1.8;
   color: #45505b;
 }
 
@@ -1579,4 +1579,12 @@ section {
     font-size: 24px;
   }
 }
+
+@media (min-width: 992px) {
+  .case-card {
+    position: sticky;
+    top: 110px; /* adjust if your header height differs */
+  }
+}
+
 
