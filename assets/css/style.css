@@ -1587,6 +1587,10 @@ section {
     align-self: flex-start; /* important */
   }
 }
+/* FIX: allow sticky inside portfolio details (sticky breaks if any ancestor has overflow hidden) */
+section#portfolio-details.portfolio-details {
+  overflow: visible !important;
+}
 
 
 
