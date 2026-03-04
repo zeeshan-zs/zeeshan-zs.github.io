@@ -62,29 +62,17 @@
 
         <div class="row gy-4 align-items-start">
 
-          <!-- LEFT: Media -->
+          <!-- LEFT: Media (scrolling image) -->
           <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper" data-aos="fade-up">
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/meraki-4.jpg" alt="Meraki Developers work – visual 1">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/meraki-3.jpg" alt="Meraki Developers work – visual 2">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/meraki-2.jpg" alt="Meraki Developers work – visual 3">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/meraki-5.jpg" alt="Meraki Developers work – visual 4">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
+            <div class="case-media" id="caseMedia">
+              <img
+                src="assets/img/portfolio/meraki-4.jpg"
+                alt="Meraki Developers work – visual"
+                class="case-media__img"
+                id="caseMediaImg"
+                decoding="async"
+                loading="eager"
+              />
             </div>
           </div>
 
@@ -303,6 +291,90 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+  (function () {
+    const media = document.getElementById("caseMedia");
+    const img = document.getElementById("caseMediaImg");
+    const rightCol = document.querySelector("#portfolio-details .col-lg-4");
+
+    if (!media || !img || !rightCol) return;
+
+    // Disable on mobile/tablet (matches CSS breakpoint)
+    const isDesktop = () => window.matchMedia("(min-width: 992px)").matches;
+
+    let rafId = null;
+
+    function setMediaHeightToMatchCard() {
+      if (!isDesktop()) return;
+      // Match the visible right column height (card)
+      const h = rightCol.getBoundingClientRect().height;
+      media.style.height = Math.max(320, Math.round(h)) + "px"; // 320 min so it never looks tiny
+    }
+
+    function clamp(n, min, max) {
+      return Math.max(min, Math.min(max, n));
+    }
+
+    function updatePan() {
+      rafId = null;
+      if (!isDesktop()) {
+        media.style.height = "";
+        img.style.transform = "";
+        return;
+      }
+
+      // Ensure height is correct first
+      setMediaHeightToMatchCard();
+
+      const mediaRect = media.getBoundingClientRect();
+      const viewportH = window.innerHeight || document.documentElement.clientHeight;
+
+      // Only animate while the media is around the viewport
+      const start = viewportH;              // when media top is below viewport
+      const end = -mediaRect.height;        // when media is fully above
+      const progress = (start - mediaRect.top) / (start - end);
+      const t = clamp(progress, 0, 1);
+
+      const mediaH = media.clientHeight;
+      const imgH = img.naturalHeight ? (img.naturalHeight * (media.clientWidth / img.naturalWidth)) : img.offsetHeight;
+      const maxShift = Math.max(0, imgH - mediaH);
+
+      // Pan from top -> bottom as you scroll
+      const y = -Math.round(maxShift * t);
+      img.style.transform = `translate3d(0, ${y}px, 0)`;
+    }
+
+    function requestUpdate() {
+      if (rafId) return;
+      rafId = requestAnimationFrame(updatePan);
+    }
+
+    function onResize() {
+      // Reset first
+      if (!isDesktop()) {
+        media.style.height = "";
+        img.style.transform = "";
+        return;
+      }
+      setMediaHeightToMatchCard();
+      requestUpdate();
+    }
+
+    // Wait for image to load so natural sizes exist
+    function init() {
+      onResize();
+      window.addEventListener("scroll", requestUpdate, { passive: true });
+      window.addEventListener("resize", onResize);
+      window.addEventListener("orientationchange", onResize);
+      requestUpdate();
+    }
+
+    if (img.complete) init();
+    else img.addEventListener("load", init);
+  })();
+</script>
 </body>
 
 </html>
+
