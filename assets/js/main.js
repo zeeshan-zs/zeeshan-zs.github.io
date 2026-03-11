@@ -202,10 +202,20 @@
   /**
    * Initiate portfolio lightbox 
    */
-  const portfolioLightbox = GLightbox({
+  /*const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
-  });
+  });*/
 
+  /**
+   * Initiate portfolio details lightbox 
+   */
+
+  /**
+ * Generic lightbox
+ */
+const generalLightbox = GLightbox({
+  selector: '.glightbox'
+});
   /**
    * Initiate portfolio details lightbox 
    */
@@ -254,17 +264,38 @@
    * Animation on scroll
    */
   window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
-  });
+  AOS.init({
+    duration: 900,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 70,
+    mirror: false
+  })
+})
 
   /**
    * Initiate Pure Counter 
    */
   new PureCounter();
+
+const copyBtn = document.getElementById('copyIntroBtn');
+if (copyBtn) {
+  copyBtn.addEventListener('click', async () => {
+    const text = `Hi Zeeshan, I came across your portfolio and I'd love to chat.
+
+Role / Project:
+Context:
+Are you free this week?`;
+    try {
+      await navigator.clipboard.writeText(text);
+      copyBtn.textContent = 'Copied ✅';
+      setTimeout(() => (copyBtn.textContent = 'Copy intro'), 1600);
+    } catch (e) {
+      // fallback: do nothing (clipboard may be blocked)
+      copyBtn.textContent = 'Copy failed';
+      setTimeout(() => (copyBtn.textContent = 'Copy intro'), 1600);
+    }
+  });
+}
 
 })()
