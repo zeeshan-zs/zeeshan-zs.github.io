@@ -98,6 +98,12 @@
           <a href="assets/resume/Zeeshan-Zubair-Digital-Marketing-Resume-n-2026.pdf" class="button hero2-cta--ghost" target="_blank">
             Download Resume
           </a>
+          <a href="https://youtu.be/qeaJA_X67JY"
+   class="button hero2-cta--ghost video-lightbox hero2-video-btn"
+   data-type="video"
+   aria-label="Watch Zeeshan Zubair's 60-second portfolio intro video">
+  <i class="bi bi-play-circle"></i> Watch Intro
+</a>
         </div>
 
         <div class="hero2-proof" data-aos="fade-up" data-aos-delay="520">
@@ -736,6 +742,19 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof GLightbox !== 'undefined') {
+      GLightbox({
+        selector: '.video-lightbox',
+        autoplayVideos: true,
+        touchNavigation: true,
+        loop: false
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
