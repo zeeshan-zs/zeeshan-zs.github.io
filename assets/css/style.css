@@ -2981,3 +2981,88 @@ section.cs-page .col-lg-12 {
     bottom: 12px;
   }
 }
+
+
+/* =========================================================
+   Final Hero CTA + Portrait Cleanup -- June 28, 2026
+========================================================= */
+
+.hero2-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.hero2-video-primary {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #0563bb !important;
+  color: #fff !important;
+  border: 1px solid #0563bb !important;
+  box-shadow: 0 14px 30px rgba(5, 99, 187, 0.24);
+}
+
+.hero2-video-primary i {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.hero2-video-primary:hover {
+  background: #0678d8 !important;
+  border-color: #0678d8 !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+.hero2-cta--ghost {
+  background: transparent !important;
+  border: 1px solid #0563bb !important;
+  color: #0563bb !important;
+  box-shadow: none !important;
+}
+
+.hero2-resume-link {
+  margin-top: 4px;
+}
+
+.hero2-resume-link a {
+  color: #0563bb;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.hero2-resume-link a:hover {
+  color: #0678d8;
+  text-decoration: underline;
+}
+
+.hero2-portrait__glass.hero2-portrait__glass--simple {
+  padding: 18px 20px !important;
+}
+
+.hero2-portrait__glass--simple .hero2-portrait__tagline {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #6b7a90;
+  line-height: 1.5;
+}
+
+@media (max-width: 576px) {
+  .hero2-cta {
+    align-items: stretch;
+  }
+
+  .hero2-cta .button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero2-resume-link {
+    text-align: center;
+  }
+}
