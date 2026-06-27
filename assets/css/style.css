@@ -1669,6 +1669,20 @@ section#portfolio-details .portfolio-details-slider img {
    Paste at end of style.css
 ========================================================= */
 
+.hero2-video-btn i {
+  margin-right: 6px;
+  font-size: 1.05rem;
+  vertical-align: -2px;
+}
+
+@media (max-width: 576px) {
+  .hero2-cta .hero2-video-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .hero2{
   width: 100%;
   min-height: 100vh;
